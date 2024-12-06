@@ -15,3 +15,10 @@ func ConvertDomainToResponse(
 		Age:   userDomain.GetAge(),
 	}
 }
+
+type UserDomainResponse struct {
+	ID    string
+	Email string
+	Name  string
+	Age   int
+}

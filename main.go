@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 
 	"github.com/VictorMont03/golang-users-app/src/config/database/mongodb"
@@ -20,7 +21,7 @@ func main() {
 
 	// Database connection
 
-	database, err := mongodb.NewMongoDBConnection()
+	database, err := mongodb.NewMongoDBConnection(context.Background())
 
 	if err != nil {
 		log.Fatalf("Error connecting to database %s", err.Error())
@@ -31,7 +32,6 @@ func main() {
 	userController := initDependencies(database)
 
 	router := gin.Default()
-
 	routes.InitRoutes(&router.RouterGroup, userController)
 
 	if err := router.Run(":8080"); err != nil {

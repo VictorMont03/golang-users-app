@@ -18,6 +18,8 @@ type UserControllerInterface interface {
 	GetUserById(c *gin.Context)
 	UpdateUser(c *gin.Context)
 	DeleteUser(c *gin.Context)
+	QueryUsers(c *gin.Context)
+	LoginUser(c *gin.Context)
 }
 
 type userControllerInterface struct {
